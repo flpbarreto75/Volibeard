@@ -35,8 +35,7 @@ checker () {
 
         SERVICE_C=$(docker ps --format '{{.Names}}' | grep $SERVICE )
 
-        echo $SERVICE_C
-
+       
         if [[ $SERVICE == $SERVICE_C ]]
         then
                 DOCKER_ID=$(docker ps | grep $SERVICE | awk '{print $1 }')
