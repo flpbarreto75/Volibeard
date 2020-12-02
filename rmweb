@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo "Enter the service name : "
+
+read SERVICE
+
+
+rm -rf /data/Web/$SERVICE
+
+rm -rf /etc/nginx/sites-available/$SERVICE
+
+rm -rf /etc/nginx/sites-enabled/$SERVICE
+rm -rf /var/log/nginx/$SERVICE
+
+docker stop $SERVICE
+docker rm $SERVICE
+
+certbot delete --cert-name $SERVICE.volibeard.com
